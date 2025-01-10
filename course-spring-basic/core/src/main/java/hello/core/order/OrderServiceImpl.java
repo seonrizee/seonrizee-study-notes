@@ -3,10 +3,12 @@ package hello.core.order;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor // final 필드를 이용한 생성자 생성 역할
 public class OrderServiceImpl implements OrderService {
 
     // 생성자 주입
@@ -15,12 +17,12 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
 
     // @Autowired 생성자가 1개면 생략 가능
-    @Autowired
+/*
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
-
+*/
     // 필드 주입
 //    @Autowired private MemberRepository memberRepository;
 //    @Autowired private DiscountPolicy discountPolicy;
