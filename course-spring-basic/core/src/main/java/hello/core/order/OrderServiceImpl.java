@@ -9,6 +9,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderServiceImpl implements OrderService {
 
+    // 생성자 주입
+
+    private final MemberRepository memberRepository;
+    private final DiscountPolicy discountPolicy;
+
+    // @Autowired 생성자가 1개면 생략 가능
+    @Autowired
+    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
+
     // 필드 주입
 //    @Autowired private MemberRepository memberRepository;
 //    @Autowired private DiscountPolicy discountPolicy;
@@ -29,18 +41,6 @@ public class OrderServiceImpl implements OrderService {
 //        System.out.println("discountPolicy = " + discountPolicy);
 //        this.discountPolicy = discountPolicy;
 //    }
-
-    // 생성자 주입
-
-    private final MemberRepository memberRepository;
-    private final DiscountPolicy discountPolicy;
-
-    // @Autowired 생성자가 1개면 생략 가능
-    @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-        this.memberRepository = memberRepository;
-        this.discountPolicy = discountPolicy;
-    }
 
     // 일반 메서드 주입
 //    private MemberRepository memberRepository;
