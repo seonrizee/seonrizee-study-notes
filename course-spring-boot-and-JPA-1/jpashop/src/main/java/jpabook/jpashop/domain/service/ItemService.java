@@ -5,10 +5,10 @@ import java.util.List;
 import jpabook.jpashop.domain.item.Item;
 import jpabook.jpashop.domain.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Setter
+@Service
 @Transactional(readOnly=true)
 @RequiredArgsConstructor
 public class ItemService {
