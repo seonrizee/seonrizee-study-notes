@@ -10,13 +10,16 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jpabook.jpashop.domain.item.Item;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderItem {
 
     @Id @GeneratedValue
@@ -33,6 +36,8 @@ public class OrderItem {
 
     private int orderPrice; // 주문 당시 가격
     private int count; // 주문 당시 수량
+
+//    protected OrderItem() {}
 
     // == 생성 메서드 ==
     public static OrderItem createOrderItem(Item item, int orderPrice, int count) {
